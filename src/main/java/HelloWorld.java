@@ -1,12 +1,19 @@
+import dadimalanta.BinaryTree;
 
 public class HelloWorld {
     public static void main (String[] args) {
         System.out.println("Hello World!");
 
+        BinaryTree MyTree = new BinaryTree();
 
-        InterfaceTest.MyInterface myInterface = new InterfaceTest.MyInterfaceImp();
-        myInterface.dothis();
-        myInterface.dothat();
+        MyTree.add(1);
+        MyTree.add(3);
+        MyTree.add(5);
+        MyTree.add(6);
+        MyTree.add(7);
+        MyTree.add(9);
 
+        MyTree.printTree();
+        MyTree.balance();
     }
 }
