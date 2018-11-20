@@ -1,14 +1,14 @@
 package dadimalanta;
 
-public class LinkedList<T> implements MyQueue<T>{
+public class LinkedList<T> implements Queue<T>, Stack<T> {
 
-    private MyNode<T> head = null;
+    private Node<T> head = null;
 
     public LinkedList(){
 
     }
     /**
-    LinkedList(MyNode<T> node){
+    public LinkedList(Node<T> node){
         this.head = node;
     }
     */
@@ -17,13 +17,25 @@ public class LinkedList<T> implements MyQueue<T>{
     @Override
     public void push(T obj){
         if (this.head == null){
-            this.head = new MyNode<T>(obj);
+            this.head = new Node<T>(obj);
         }else{
-            MyNode<T> curr = this.head;
+            Node<T> curr = this.head;
             while(curr.getNext() != null){
                 curr = curr.getNext();
             }
-            curr.setNext(new MyNode<T>(obj));
+            curr.setNext(new Node<T>(obj));
+        }
+    }
+
+    @Override
+    public void pushS(T obj){
+        Node<T> head = this.head;
+        if (this.head == null){
+            this.head = new Node<T>(obj);
+        }else{
+            Node<T> curr = new Node<T>(obj);
+            this.head = curr;
+            this.head.setNext(head);
         }
     }
 
@@ -34,7 +46,7 @@ public class LinkedList<T> implements MyQueue<T>{
         }
 
         //find way to remove head obj completely
-        MyNode<T> curr = this.head;
+        Node<T> curr = this.head;
         this.head = this.head.getNext();
         return curr.getVal();
     }
@@ -47,9 +59,14 @@ public class LinkedList<T> implements MyQueue<T>{
     @Override
     public int size(){
         int count = 0;
-        MyNode<T> curr = this.head;
-        while((curr.getNext() != null) && (curr != null)){
+        if (this.head == null) {
+            return 0;
+        }
+        count++;
+        Node<T> curr = this.head;
+        while((curr.getNext() != null)){
             count++;
+            curr = curr.getNext();
         }
         return count;
     }

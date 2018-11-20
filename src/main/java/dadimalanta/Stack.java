@@ -1,4 +1,10 @@
 package dadimalanta;
 
-public class Stack {
+public interface Stack<T> {
+    void pushS(T object);
+    T pop();
+    T peek();
+    int size();
+    boolean isEmpty();
+
 }

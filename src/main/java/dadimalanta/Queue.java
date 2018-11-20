@@ -1,8 +1,7 @@
 package dadimalanta;
 
-public interface MyQueue<T> {
+public interface Queue<T> {
     void push(T object);
-    void pushS(T object);
     T pop();
     T peek();
     int size();

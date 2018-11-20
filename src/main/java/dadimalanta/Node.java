@@ -1,12 +1,15 @@
 package dadimalanta;
 
-public class MyNode<T> {
+public class Node<T> {
     private T value = null;
-    private MyNode next = null;
-    private MyNode left = null;
-    private MyNode right = null;
+    private Node next = null;
+    private Node left = null;
+    private Node right = null;
 
-    public MyNode (T value){
+    public Node(){
+    }
+
+    public Node(T value){
         this.value = value;
         this.next = null;
         this.right = null;
@@ -17,15 +20,15 @@ public class MyNode<T> {
         return this.value;
     }
 
-    public MyNode<T> getNext(){
+    public Node<T> getNext(){
         return this.next;
     }
 
-    public MyNode<T> getLeft(){
+    public Node<T> getLeft(){
         return this.left;
     }
 
-    public MyNode<T> getRight(){
+    public Node<T> getRight(){
         return this.right;
     }
 
@@ -33,22 +36,26 @@ public class MyNode<T> {
         this.value = value;
     }
 
-    public void setNext(MyNode<T> next){
+    public void setNext(Node<T> next){
         this.next = next;
     }
 
-    public void setLeft(MyNode<T> left){
+    public void setLeft(Node<T> left){
         this.left = left;
     }
 
-    public void setRight(MyNode<T> right){
+    public void setRight(Node<T> right){
         this.right = right;
     }
 
     public void remove(){
         this.next = null;
         this.value = null;
+        this.right = null;
+        this.left = null;
     }
+
+
 
 
 }
