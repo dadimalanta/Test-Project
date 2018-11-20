@@ -8,6 +8,9 @@ public class MyNode<T> {
 
     public MyNode (T value){
         this.value = value;
+        this.next = null;
+        this.right = null;
+        this.left = null;
     }
 
     public T getVal(){
