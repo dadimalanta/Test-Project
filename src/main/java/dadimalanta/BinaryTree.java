@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class BinaryTree<T> {
+public class BinaryTree<T> implements iTree<T> {
     private Node<T> root = null;
     final private int MAX = 20;
 
@@ -12,6 +12,7 @@ public class BinaryTree<T> {
 
     }
 
+    @Override
     public Node<T> getRoot() {
         if (this.root != null) {
             return this.root;
@@ -21,6 +22,7 @@ public class BinaryTree<T> {
 
     }
 
+    @Override
     public void add(T obj) {
         if (this.root == null) {
             Node<T> node = new Node<T>(obj);
@@ -51,6 +53,7 @@ public class BinaryTree<T> {
 
     }
 
+    @Override
     public Node<T> search(T obj){
         Node<T> curr = this.root;
 
@@ -72,6 +75,7 @@ public class BinaryTree<T> {
         return null;
     }
 
+    @Override
     public void printTree(){
         if(this.root == null){
             return;
@@ -97,6 +101,7 @@ public class BinaryTree<T> {
         return;
     }
 
+    @Override
     public void balance(){
         List<Node<T>> objArr = new ArrayList<Node<T>>();
         Node<T> curr = this.root;
